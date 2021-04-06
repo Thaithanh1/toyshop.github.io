@@ -1,0 +1,41 @@
+-------------------Customer table
+CREATE TABLE customer (
+	id int PRIMARY KEY AUTO_INCREMENT,
+    name varchar(200) not null,
+    phonenumber varchar(20) not null, 
+    customeraddress varchar(2000) not null, 
+    email varchar(200)
+)
+-------------------Order table
+CREATE TABLE orderr (
+	id int PRIMARY key AUTO_INCREMENT,
+    datetime datetime,
+    address varchar(2000) not null,
+    total_price varchar(200) not null,
+    id_customer int REFERENCES customer(id)
+)
+--------------------Category table
+create table category (
+	id int primary key auto_increment,
+	name varchar(50) not null,
+	thumbnail varchar(500),
+	created_at datetime,
+	updated_at datetime
+)
+--------------------Product table
+create table product (
+	id int primary key auto_increment,
+	title varchar(200) not null,
+	price float,
+	thumbnail varchar(500),
+	content longtext,
+	id_category int references category (id),
+	created_at datetime,
+	updated_at datetime
+)
+--------------------Admin table
+create table tb_admin (
+	id int primary key auto_increment,
+	a_name varchar(200) not null,
+	a_password varchar(200) not null
+)
